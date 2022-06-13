@@ -1,25 +1,17 @@
-class VideoPlayer extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = { video: PropTypes.object.isRequired };
-  }
-
-  render() {
-
-    return (
-      <div className="video-player">
-        <div className="embed-responsive embed-responsive-16by9">
-          <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" allowFullScreen></iframe>
-        </div>
-        <div className="video-player-details">
-          <h3>Video Title</h3>
-          <div>Video Description</div>
-        </div>
+var VideoPlayer = function(props) {
+  return (
+    <div className="video-player">
+      <div className="embed-responsive embed-responsive-16by9">
+        <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" allowFullScreen></iframe>
       </div>
-    );
-  }
-}
+      <div className="video-player-details">
+        <h3>{props.title}</h3>
+        <div>{props.description}</div>
+      </div>
+    </div>
+  );
+};
+
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated

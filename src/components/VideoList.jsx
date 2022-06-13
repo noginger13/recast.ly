@@ -1,24 +1,17 @@
-//import exampleVideoData from 'exampleVideoData.js';
+import exampleVideoData from '/src/data/exampleVideoData.js';
+import VideoListEntry from '/compiled/src/components/VideoListEntry.js';
 
-class VideoList extends React.Component {
+var VideoList = function () {
 
-  constructor(props) {
-    super(props);
-    this.state = {videos: PropTypes.array.isRequired};
-  }
-
-  render() {
-
-    return (
-      <div className="video-list">
-        <div><h5><em>videoListEntry</em> view goes here</h5></div>
-        <div><h5><em>videoListEntry</em> view goes here</h5></div>
-        <div><h5><em>videoListEntry</em> view goes here</h5></div>
-        <div><h5><em>videoListEntry</em> view goes here</h5></div>
-        <div><h5><em>videoListEntry</em> view goes here</h5></div>
+  return (
+    <div className="video-list">
+      <div>
+        {exampleVideoData.map((video) => {
+          return <VideoListEntry key={video.id.videoId} title={video.snippet.title} description={video.snippet.description} thumbnailUrl={video.snippet.thumbnails.default.url}></VideoListEntry>;
+        })}
       </div>
-    );
-  }
+    </div>
+  );
 
 
   // PropTypes tell other developers what `props` a component expects
@@ -26,7 +19,7 @@ class VideoList extends React.Component {
   /*VideoList.propTypes = {
       videos: PropTypes.array.isRequired
     };*/
-}
+};
 
 // In the ES6 spec, files are "modules" and do not share a top-level scope.
 // `var` declarations will only exist globally where explicitly defined.
