@@ -1,5 +1,5 @@
 //import exampleVideoData from '/src/data/exampleVideoData.js';
-import VideoListEntry from '/compiled/src/components/VideoListEntry.js';
+import VideoListEntry from './VideoListEntry.js';
 
 var VideoList = function (props) {
   var videos = props.videos;
